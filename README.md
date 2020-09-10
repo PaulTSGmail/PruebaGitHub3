@@ -1,41 +1,43 @@
-# gitPrueba2____No colaboradores__solo clonar___ y usar la misma cuenta para todo el mundo
+# gitPrueba3____Con colaboradores_
 
 :pppp
-Este es para probar la colaboracion, pero sin dar de alta colaboradores. La idea es que todos tienen acceso al master (por que todos estan usando la MISMA cuenta!), lo clonana y lo modifican.
-Se supone que esta estrategia es buena para pequenyos equipos, con muy buena cominucacion. AKA, laboratorios, oficinas contiguas, etc.
+Este es para probar la colaboracion.
 
 lo saque de aqui (https://uoftcoders.github.io/studyGroup/lessons/git/collaboration/lesson/)
 
-SHARED REPOSITORY MODEL
+EXERCISE 1
+TWO PERSON COLLABORATION VIA THE CLI - SHARED REPO WORKFLOW (WITHOUT BRANCHES)
 
-  -For small projects where you are basically in the same physical space (e.g. lab with offices near each other).
-  
-  -Be careful! You are cloning the main repository.
-  
-  -Everyone has push and pull access to the central repo, so be careful and:
-  
-    -Never commit to the master directly.
-    
-    -Always do your work on a different branch from master.
-    
-    
-BASIC SHARED REPOSITORY WORKFLOW
+This exercise is based on the SWC Git Novice lesson https://swcarpentry.github.io/git-novice/08-collab/
 
-  -update your local repo with                                git pull origin master,
-  
-  -create a working branch with                               git checkout -b MyNewBranch
-  
-  -make your changes on your branch and stage them with       git add
-  
-  -commit your changes locally with                           git commit -m "description of your commit", and
-  
-  -upload the changes (including your new branch) to GitHub with            git push origin MyNewBranch
-  
-  -Go to the main repo on GitHub where you should now see your new branch
-  
-  -click on your branch name
-  
-  -click on “Pull Request” button (URC)
-  
-  -click on “Send Pull Request”
+One of you will be the “Owner” and one of you will be the “Collaborator.”
 
+A. OWNER GIVES COLLABORATOR ACCESS TO THEIR REPO.
+Go to your GitHub repo
+Add a file called “tenlines.txt” and put the text from the etherpad into the file. Commit your changes.
+Click on Settings tab.
+Click Collaborators
+Enter collaborataors username
+B. COLLABORATOR CLONES OWNER’S REPO
+Go to https://github.com/notifications and accept access to Owner’s repo.
+On the CLI, clone the owner’s repo but issuing the commmand:
+$ git clone URL-of-Origin-Repo Directory-Address-of-Local-Repo
+C. COLLABORATOR WORKS ON CLONE OF OWNER’S REPO
+Go to your cloned repo:
+$ cd ~/.../yourClone
+
+Open editor and revise working file:
+atom tenlines.txt
+
+Commit your changes to your local repo:
+$ git add tenlines.txt
+$ git commit -m "your commit message"
+
+Push your changes to the Owner’s repo on GitHub:
+$ git push origin master
+
+D. OWNER REVIEW AND ACCEPTS CHANGES FROM COLLABORATOR
+Look at Owner’s GitHub repo and see new commit(s) from Collaborator.
+
+Download (pull) Collaborators changes to Owner’s local repo:
+$ git pull origin master
